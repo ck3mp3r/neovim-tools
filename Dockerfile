@@ -43,7 +43,18 @@ RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall' 
       nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # installing various tree-sitter languages
-RUN for n in "bash" "dockerfile" "go" "hcl" "java" "javascript" "json" "kotlin" "lua" "python" "yaml"; do nvim --headless -c "TSInstallSync ${n}" -c 'q'; done
+RUN for n in "bash" \
+             "dockerfile" \
+             "go" \
+             "hcl" \
+             "java" \
+             "javascript" \
+             "json" \
+             "kotlin" \
+             "lua" \
+             "python" \
+             "yaml"; \
+             do nvim --headless -c "TSInstallSync ${n}" -c 'q'; done
 
 # cleaning up after ourselves as root user
 USER root

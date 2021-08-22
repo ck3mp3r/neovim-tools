@@ -43,4 +43,4 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
-vim.cmd[[autocmd UiEnter * colorscheme onedark]]
+vim.cmd[[autocmd UiEnter * colorscheme gruvbox]]
