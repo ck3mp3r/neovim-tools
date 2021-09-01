@@ -6,11 +6,13 @@ build:
 
 run:
 	docker run \
+	--rm \
 	-v `pwd`:/work \
   -it ckemper/neovim-tools:${IMAGE_VERSION}
 
-run-sh:
+sh:
 	docker run \
+	--rm \
 	-v `pwd`:/work \
 	--entrypoint=ash \
   -it ckemper/neovim-tools:${IMAGE_VERSION}

@@ -1,4 +1,4 @@
-if has_module('lspconfig') then
+if Has_Module('lspconfig') then
   local nvim_lsp = require('lspconfig')
 
   --local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
