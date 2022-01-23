@@ -1,4 +1,4 @@
-FROM ckemper/neovim-core:snapshot
+FROM ckemper/neovim-core:0.6.1
 
 ARG TARGETPLATFORM=linux/arm64
 
