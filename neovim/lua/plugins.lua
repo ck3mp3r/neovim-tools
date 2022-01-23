@@ -22,7 +22,6 @@ return require('packer').startup(
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'tpope/vim-vinegar'
-    use 'mhinz/vim-startify'
     use 'morhetz/gruvbox'
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
@@ -33,22 +32,6 @@ return require('packer').startup(
         {'nvim-lua/popup.nvim'},
         {'nvim-lua/plenary.nvim'}
       }
-    }
-    use {
-     'shadmansaleh/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true},
-      config = function()
-        require('lualine').setup {
-         tabline = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = { require'tabline'.tabline_buffers },
-            lualine_x = { require'tabline'.tabline_tabs },
-            lualine_y = {},
-            lualine_z = {},
-          }
-        }
-      end
     }
     use 'nvim-treesitter/nvim-treesitter'
     use 'wbthomason/packer.nvim'
