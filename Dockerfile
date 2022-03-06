@@ -1,6 +1,4 @@
-FROM ckemper/neovim-core:0.6.1
-
-ARG TARGETPLATFORM=linux/arm64
+FROM ckemper/neovim-core:latest
 
 ENV LANG en_GB.UTF-8
 ENV LANGUAGE en_GB:en
@@ -14,6 +12,7 @@ RUN apk add --update --no-cache \
   go \
   gcc \
   g++ \
+  htop \
   libgcc \
   python3-dev \
   nodejs \
@@ -23,22 +22,21 @@ RUN apk add --update --no-cache \
 # ensure we are doing the following as neo user
 USER neo
 
-# installing various language servers
-RUN yarn global add pyright dockerfile-language-server-nodejs
-RUN GO111MODULE=on go get golang.org/x/tools/gopls@latest
-RUN ARCH=$( echo $TARGETPLATFORM | cut -d '/' -f 2 ) &&\
-  DOWNLOAD_URL=$(curl -s https://api.github.com/repos/hashicorp/terraform-ls/releases/latest | grep 'browser_' | cut -d'"' -f4 | grep 'linux' | grep $ARCH ) &&\
-  curl -L -o /tmp/terraform.zip $DOWNLOAD_URL
-RUN unzip /tmp/terraform.zip -d $HOME/.local/bin
+# RUN uname -m
+# RUN ARCH=$( uname -m ) &&\
+#   DOWNLOAD_URL=$(curl -s https://api.github.com/repos/hashicorp/terraform-ls/releases/latest | grep 'browser_' | cut -d'"' -f4 | grep 'linux' | grep $ARCH ) &&\
+#   curl -L -o /tmp/terraform.zip $DOWNLOAD_URL
+# RUN unzip /tmp/terraform.zip -d $HOME/.local/bin
 
 # adding package manager
-RUN git clone --depth=1 https://github.com/wbthomason/packer.nvim $HOME/.config/nvim/pack/packer/start/packer.nvim
+# RUN git clone --depth=1 https://github.com/wbthomason/packer.nvim $HOME/.config/nvim/pack/packer/start/packer.nvim
 
 # copying configuration in place
-COPY neovim/init.vim $XDG_CONFIG_HOME/nvim
-COPY neovim/lua $XDG_CONFIG_HOME/nvim/lua
+COPY nvim $XDG_CONFIG_HOME/nvim
 
-# installing plugin packages
+# installing plugin packages, running it twice due to random fetching fialures... don't ask...
+RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall' &&\
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall' &&\
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
@@ -56,12 +54,23 @@ RUN for n in "bash" \
   "yaml"; \
   do nvim --headless -c "TSInstallSync ${n}" -c 'q'; done
 
+# installing various tree-sitter languages
+RUN for n in "bashls" \
+  "dockerls" \
+  "gopls" \
+  "jsonnet_ls" \
+  "jsonls" \
+  # "sumneko_lua" \ not supported on arm64 for alpine... yet
+  "yamlls"; \
+  do nvim --headless -c "LspInstall --sync ${n}" -c 'q'; done
+
 # cleaning up after ourselves as root user
 USER root
 RUN rm -fr /tmp/*
 
+ENV PATH=$PATH:$HOME/go:$HOME/.local/bin
 # ensure that we never run as root in the container
-USER neo
+# USER neo
 
 WORKDIR /work
 

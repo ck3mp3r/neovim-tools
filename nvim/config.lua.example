@@ -1,0 +1,5 @@
+Nvim.plugins = {
+   "tpope/vim-surround",
+}
+
+Nvim.colorscheme = "gruvbox"

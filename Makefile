@@ -17,6 +17,14 @@ sh:
 	--entrypoint=ash \
   -it ckemper/neovim-tools:${IMAGE_VERSION}
 
+sh-share:
+	docker run \
+	--rm \
+	-v `pwd`/nvim:/home/neo/.config/nvim \
+	-v `pwd`:/work \
+	--entrypoint=ash \
+  -it ckemper/neovim-tools:${IMAGE_VERSION}
+
 login:
 	docker login -u ckemper -p ${PASSWORD}
 
