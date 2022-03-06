@@ -69,9 +69,11 @@ USER root
 RUN rm -fr /tmp/*
 
 ENV PATH=$PATH:$HOME/go:$HOME/.local/bin
-# ensure that we never run as root in the container
-# USER neo
 
 WORKDIR /work
+RUN rm -fr /work/*
+
+# ensure that we never run as root in the container
+USER neo
 
 ENTRYPOINT nvim
