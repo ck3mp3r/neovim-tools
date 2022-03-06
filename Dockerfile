@@ -33,7 +33,8 @@ USER neo
 
 # copying configuration in place
 COPY lua $XDG_CONFIG_HOME/nvim/lua
-COPY init.lua config.lua $XDG_CONFIG_HOME/nvim/
+COPY init.lua $XDG_CONFIG_HOME/nvim/
+COPY config.lua.example $XDG_CONFIG_HOME/nvim/config.lua
 
 # installing plugin packages, running it twice due to random fetching fialures... don't ask...
 RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
