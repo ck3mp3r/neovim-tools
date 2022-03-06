@@ -32,15 +32,15 @@ USER neo
 # RUN git clone --depth=1 https://github.com/wbthomason/packer.nvim $HOME/.config/nvim/pack/packer/start/packer.nvim
 
 # copying configuration in place
-COPY nvim $XDG_CONFIG_HOME/nvim
+COPY lua $XDG_CONFIG_HOME/nvim/lua
+COPY init.lua $XDG_CONFIG_HOME/nvim/
+COPY config.lua $XDG_CONFIG_HOME/nvim/
 
 # installing plugin packages, running it twice due to random fetching fialures... don't ask...
-RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall' &&\
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall' &&\
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
+RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-# installing various tree-sitter languages
+# # # installing various tree-sitter languages
 RUN for n in "bash" \
   "dockerfile" \
   "go" \
@@ -54,7 +54,7 @@ RUN for n in "bash" \
   "yaml"; \
   do nvim --headless -c "TSInstallSync ${n}" -c 'q'; done
 
-# installing various tree-sitter languages
+# # # installing various tree-sitter languages
 RUN for n in "bashls" \
   "dockerls" \
   "gopls" \

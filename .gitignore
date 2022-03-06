@@ -40,10 +40,10 @@ luac.out
 *.hex
 
 htop
-nvim/plugin
+plugin
 .local
 .npm
 go
 test
 .ash_history
-nvim/config.lua
+config.lua
