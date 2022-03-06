@@ -114,6 +114,19 @@ return packer.startup(function(use)
   -- Whichkey
   use "folke/which-key.nvim"
 
+  -- Trouble
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    config = function()
+      require("trouble").setup({
+        auto_open = true,
+        auto_close = true,
+        use_diagnostic_signs = true,
+      })
+    end,
+  }
+
   -- load user plugins
   for _, v in ipairs(Nvim.plugins) do
     use(v)
