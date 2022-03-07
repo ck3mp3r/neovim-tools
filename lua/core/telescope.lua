@@ -3,7 +3,7 @@ if not ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 -- local trouble = require("trouble.providers.telescope")
 
 telescope.setup {

@@ -5,7 +5,7 @@ end
 
 comment.setup {
   pre_hook = function(ctx)
-    local U = require "Comment.utils"
+    local U = require("Comment.utils")
 
     local location = nil
     if ctx.ctype == U.ctype.block then

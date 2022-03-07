@@ -3,7 +3,7 @@ if not ok then
   return
 end
 
-notify.setup({
+notify.setup {
   -- Animation style (see below for details)
   stages = "slide",
 
@@ -39,6 +39,6 @@ notify.setup({
     DEBUG = "",
     TRACE = "✎",
   },
-})
+}
 
 vim.notify = notify

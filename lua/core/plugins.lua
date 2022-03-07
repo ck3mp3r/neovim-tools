@@ -6,7 +6,7 @@ local plugins = {
   "ellisonleao/gruvbox.nvim", -- defaulting to gruvbox
   "rcarriga/nvim-notify", -- notifications
 
-   -- cmp plugins
+  -- cmp plugins
   "hrsh7th/nvim-cmp", -- The completion plugin
   "hrsh7th/cmp-buffer", -- buffer completions
   "hrsh7th/cmp-path", -- path completions
@@ -35,27 +35,27 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     requires = {
-      {"p00f/nvim-ts-rainbow"}
-    }
+      { "p00f/nvim-ts-rainbow" },
+    },
   },
 
   -- Easily comment stuff
   "numToStr/Comment.nvim",
-  'JoosepAlviste/nvim-ts-context-commentstring',
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
   "lewis6991/gitsigns.nvim",
 
   -- NVIM Tree
-  'kyazdani42/nvim-web-devicons',
-  'kyazdani42/nvim-tree.lua',
+  "kyazdani42/nvim-web-devicons",
+  "kyazdani42/nvim-tree.lua",
 
   -- Buffer line
   "akinsho/bufferline.nvim",
   "moll/vim-bbye",
 
   -- Lualine
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
 
   -- Toggleterm
   "akinsho/toggleterm.nvim",
@@ -70,7 +70,7 @@ local plugins = {
   "lukas-reineke/indent-blankline.nvim",
 
   -- Alpha
-  'goolord/alpha-nvim',
+  "goolord/alpha-nvim",
 
   -- Whichkey
   "folke/which-key.nvim",
@@ -79,4 +79,6 @@ local plugins = {
   "folke/trouble.nvim",
 }
 
-for _, v in pairs(plugins) do table.insert(Nvim.plugins, v) end
+for _, v in pairs(plugins) do
+  table.insert(Nvim.plugins, v)
+end
