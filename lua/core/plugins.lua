@@ -4,6 +4,7 @@ local plugins = {
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
   "ellisonleao/gruvbox.nvim", -- defaulting to gruvbox
+  "rcarriga/nvim-notify", -- notifications
 
    -- cmp plugins
   "hrsh7th/nvim-cmp", -- The completion plugin
@@ -23,6 +24,7 @@ local plugins = {
   "williamboman/nvim-lsp-installer", -- simple to ,language server installer
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
   "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
+  -- "gbrlsnchs/telescope-lsp-handlers.nvim", -- telescope integration
 
   -- Telescope
   "nvim-telescope/telescope.nvim",
@@ -74,17 +76,7 @@ local plugins = {
   "folke/which-key.nvim",
 
   -- Trouble
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-    config = function()
-      require("trouble").setup({
-        auto_open = true,
-        auto_close = true,
-        use_diagnostic_signs = true,
-      })
-    end,
-  }
+  "folke/trouble.nvim",
 }
 
 for _, v in pairs(plugins) do table.insert(Nvim.plugins, v) end

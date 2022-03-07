@@ -132,32 +132,37 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
+    d = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    i = { "<cmd>LspInfo<cr>", "Info" },
     j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
     },
     k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    q = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
+    R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    r = { "<cmd>Trouble lsp_references<cr>", "References" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
+    },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    w = {
+      -- "<cmd>Telescope diagnostics<cr>",
+      "<cmd>Trouble workspace_diagnostics<cr>",
+      "Workspace Diagnostics",
+    },
+    x = {
+      -- "<cmd>Telescope diagnostics bufnr=0<cr>",
+      "<cmd>Trouble document_diagnostics<cr>",
+      "Document Diagnostics",
     },
   },
   s = {
@@ -182,16 +187,6 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-
-  x = {
-    name = "Trouble",
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    d = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    x = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-  }
 }
 
 local vopts = {
