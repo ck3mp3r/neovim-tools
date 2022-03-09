@@ -26,6 +26,13 @@ local plugins = {
   "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
   -- "gbrlsnchs/telescope-lsp-handlers.nvim", -- telescope integration
 
+  -- DAP
+  {
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap" },
+  },
+  "leoluz/nvim-dap-go",
+
   -- Telescope
   "nvim-telescope/telescope.nvim",
   -- ,"nvim-telescope/telescope-media-files.nvim"
