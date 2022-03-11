@@ -4,7 +4,7 @@ if not ok then
 end
 
 local colors = require("core.gui.lualine.colors")
-local config = require("core.gui.lualine.config")
+local config = require("core.gui.lualine.conf")
 local conditions = require("core.gui.lualine.conditions")
 
 table.insert(config.sections.lualine_a, {
