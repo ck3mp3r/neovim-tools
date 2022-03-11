@@ -60,5 +60,12 @@ dap.configurations.go = {
 }
 
 require("core.dap.dapui")
-require("dap-go").setup()
+
+local dapgo_ok, dapgo = pcall(require, "dap-go")
+if not dapgo_ok then
+  return
+end
+
+dapgo.setup()
+
 require("core.dap.keymaps")

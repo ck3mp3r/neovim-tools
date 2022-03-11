@@ -41,10 +41,8 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    requires = {
-      { "p00f/nvim-ts-rainbow" },
-    },
   },
+  "p00f/nvim-ts-rainbow",
 
   -- Easily comment stuff
   "numToStr/Comment.nvim",
