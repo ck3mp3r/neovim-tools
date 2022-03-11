@@ -1,0 +1,8 @@
+require("core.misc.autocommands")
+require("core.misc.autopairs")
+require("core.misc.cmp")
+require("core.misc.comment")
+require("core.misc.gitsigns")
+require("core.misc.impatient")
+require("core.misc.indentline")
+require("core.misc.project")

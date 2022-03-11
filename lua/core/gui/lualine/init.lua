@@ -3,9 +3,9 @@ if not ok then
   return
 end
 
-local colors = require("core.lualine.colors")
-local config = require("core.lualine.config")
-local conditions = require("core.lualine.conditions")
+local colors = require("core.gui.lualine.colors")
+local config = require("core.gui.lualine.config")
+local conditions = require("core.gui.lualine.conditions")
 
 table.insert(config.sections.lualine_a, {
   function()

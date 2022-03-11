@@ -1,0 +1,8 @@
+require("core.gui.alpha")
+require("core.gui.colorscheme")
+require("core.gui.nvim-tree")
+require("core.gui.bufferline")
+require("core.gui.telescope")
+require("core.gui.lualine")
+require("core.gui.notify")
+require("core.gui.toggleterm")
