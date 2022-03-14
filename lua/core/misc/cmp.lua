@@ -9,7 +9,7 @@ if not snip_status_ok then
 end
 
 local snip_loaders_status_ok, luasnip_loaders = pcall(require, "luasnip/loaders/from_vscode")
-if snip_loaders_status_ok then
+if not snip_loaders_status_ok then
   return
 end
 
