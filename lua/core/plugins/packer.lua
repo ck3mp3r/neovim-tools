@@ -45,7 +45,7 @@ return packer.startup(function(use)
     use(v)
   end
 
-  if PACKER_BOOTSTRAP then
-    packer.sync()
-  end
+  -- if PACKER_BOOTSTRAP then
+  --   packer.sync()
+  -- end
 end)

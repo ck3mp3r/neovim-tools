@@ -30,7 +30,7 @@ RUN apk add --update --no-cache \
 RUN rm -fr $XDG_CONFIG_HOME/*
 
 # adding package manager
-RUN git clone --depth=1 https://github.com/wbthomason/packer.nvim $XDG_CONFIG_HOME/nvim/pack/packer/start/packer.nvim
+# RUN git clone --depth=1 https://github.com/wbthomason/packer.nvim $XDG_CONFIG_HOME/nvim/pack/packer/start/packer.nvim
 COPY init.lua $XDG_CONFIG_HOME/nvim/
 COPY lua $XDG_CONFIG_HOME/nvim/lua
 COPY config.lua.example $XDG_CONFIG_HOME/nvim/config.lua

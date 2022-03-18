@@ -1,6 +1,5 @@
 Nvim.plugins = {
   "google/vim-jsonnet",
-  "tpope/vim-surround",
   "towolf/vim-helm",
 }
 

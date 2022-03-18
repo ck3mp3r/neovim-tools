@@ -49,7 +49,14 @@ local plugins = {
   "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
-  "lewis6991/gitsigns.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup {
+        current_line_blame = true,
+      }
+    end,
+  },
 
   -- NVIM Tree
   "kyazdani42/nvim-web-devicons",
@@ -82,6 +89,10 @@ local plugins = {
 
   -- Trouble
   "folke/trouble.nvim",
+
+  -- TPope
+  "tpope/vim-surround",
+  "tpope/vim-fugitive",
 }
 
 for _, v in pairs(plugins) do
