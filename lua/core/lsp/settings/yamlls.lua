@@ -1,9 +1,11 @@
 local opts = {
+  filetypes = { "yml", "yaml", "yaml.gotexttmpl", "yaml.docker-compose", "config" },
   settings = {
     yaml = {
       schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["https://json.schemastore.org/chart.json"] = "*/templates/**.yaml"
+        ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+        ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+        ["https://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
       },
     },
   },
