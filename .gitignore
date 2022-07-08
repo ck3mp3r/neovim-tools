@@ -39,6 +39,9 @@ luac.out
 *.x86_64
 *.hex
 
+# Mac OS files
+.DS_Store
+
 htop
 plugin
 .local
